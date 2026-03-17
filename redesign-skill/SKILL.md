@@ -1,178 +1,142 @@
 ---
-name: redesign-existing-projects
-description: Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.
+name: supanova-redesign-engine
+description: Upgrades existing landing pages to premium quality. Audits current design for generic AI patterns and applies Supanova's high-end standards. Works with any HTML/CSS landing page — Tailwind, vanilla CSS, or inline styles.
 ---
 
-# Redesign Skill
+# Supanova Redesign Engine
 
 ## How This Works
 
-When applied to an existing project, follow this sequence:
+When applied to an existing landing page, follow this sequence:
 
-1. **Scan** — Read the codebase. Identify the framework, styling method (Tailwind, vanilla CSS, styled-components, etc.), and current design patterns.
-2. **Diagnose** — Run through the audit below. List every generic pattern, weak point, and missing state you find.
-3. **Fix** — Apply targeted upgrades working with the existing stack. Do not rewrite from scratch. Improve what's there.
+1. **Scan** — Read the HTML/CSS. Identify the styling method, current design patterns, font stack, color palette, and layout structure.
+2. **Diagnose** — Run through the audit below. Document every generic pattern, weak point, and missing element.
+3. **Fix** — Apply targeted upgrades. Do not rewrite from scratch. Improve what's there while maintaining the existing structure.
 
-## Design Audit
+## Design Audit for Landing Pages
 
 ### Typography
 
-Check for these problems and fix them:
-
-- **Browser default fonts or Inter everywhere.** Replace with a font that has character. Good options: `Geist`, `Outfit`, `Cabinet Grotesk`, `Satoshi`. For editorial/creative projects, pair a serif header with a sans-serif body.
-- **Headlines lack presence.** Increase size for display text, tighten letter-spacing, reduce line-height. Headlines should feel heavy and intentional.
-- **Body text too wide.** Limit paragraph width to roughly 65 characters. Increase line-height for readability.
-- **Only Regular (400) and Bold (700) weights used.** Introduce Medium (500) and SemiBold (600) for more subtle hierarchy.
-- **Numbers in proportional font.** Use a monospace font or enable tabular figures (`font-variant-numeric: tabular-nums`) for data-heavy interfaces.
-- **Missing letter-spacing adjustments.** Use negative tracking for large headers, positive tracking for small caps or labels.
-- **All-caps subheaders everywhere.** Try lowercase italics, sentence case, or small-caps instead.
-- **Orphaned words.** Single words sitting alone on the last line. Fix with `text-wrap: balance` or `text-wrap: pretty`.
+- **Browser default fonts, Inter, or Noto Sans KR.** Replace with Pretendard (Korean standard) + premium English display font (Geist, Outfit, Cabinet Grotesk, Satoshi).
+- **Headlines lack presence.** Korean headlines need `text-4xl md:text-6xl tracking-tight leading-tight font-bold`. Tighten letter-spacing for impact.
+- **Missing `word-break: keep-all` on Korean text.** Korean words break mid-character without this. Add to all Korean text blocks.
+- **Body text too wide.** Constrain to ~65 characters max width. Increase `line-height` for Korean readability.
+- **Only Regular and Bold weights.** Introduce Medium (500) and SemiBold (600) for hierarchy depth.
+- **Numbers in proportional font.** Use `font-variant-numeric: tabular-nums` or monospace for metrics and pricing.
+- **Orphaned words.** Fix with `text-wrap: balance` on headings.
 
 ### Color and Surfaces
 
-- **Pure `#000000` background.** Replace with off-black, dark charcoal, or tinted dark (`#0a0a0a`, `#121212`, or a dark navy).
-- **Oversaturated accent colors.** Keep saturation below 80%. Desaturate accents so they blend with neutrals instead of screaming.
-- **More than one accent color.** Pick one. Remove the rest. Consistency beats variety.
-- **Mixing warm and cool grays.** Stick to one gray family. Tint all grays with a consistent hue (warm or cool, not both).
-- **Purple/blue "AI gradient" aesthetic.** This is the most common AI design fingerprint. Replace with neutral bases and a single, considered accent.
-- **Generic `box-shadow`.** Tint shadows to match the background hue. Use colored shadows (e.g., dark blue shadow on a blue background) instead of pure black at low opacity.
-- **Flat design with zero texture.** Add subtle noise, grain, or micro-patterns to backgrounds. Pure flat vectors feel sterile.
-- **Perfectly even gradients.** Break the uniformity with radial gradients, noise overlays, or mesh gradients instead of standard linear 45-degree fades.
-- **Inconsistent lighting direction.** Audit all shadows to ensure they suggest a single, consistent light source.
-- **Random dark sections in a light mode page (or vice versa).** A single dark-background section breaking an otherwise light page looks like a copy-paste accident. Either commit to a full dark mode or keep a consistent background tone throughout. If contrast is needed, use a slightly darker shade of the same palette — not a sudden jump to `#111` in the middle of a cream page.
-- **Empty, flat sections with no visual depth.** Sections that are just text on a plain background feel unfinished. Add high-quality background imagery (blurred, overlaid, or masked), subtle patterns, or ambient gradients. Use reliable placeholder sources like `https://picsum.photos/seed/{name}/1920/1080` when real assets are not available. Experiment with background images behind hero sections, feature blocks, or CTAs — even a subtle full-width photo at low opacity adds presence.
+- **Pure `#000000` background.** Replace with `#0a0a0a`, `#09090b` (zinc-950), or tinted dark.
+- **Oversaturated accent colors.** Keep saturation below 80%. Desaturate to blend elegantly with neutrals.
+- **Multiple accent colors competing.** Pick ONE. Remove the rest.
+- **Purple/blue "AI gradient" aesthetic.** The most common AI design fingerprint. Replace with neutral bases + single considered accent.
+- **Generic `box-shadow`.** Tint shadows to background hue. Dark blue shadow on blue background, not `rgba(0,0,0,0.3)`.
+- **Flat design with zero texture.** Add subtle noise overlay, mesh gradient background, or micro-patterns.
+- **Random dark section in a light page.** Maintain consistent background tone. Use shade variations, not dramatic jumps.
+- **Empty flat sections.** Add background imagery (blurred, masked), ambient gradients, or pattern overlays.
 
-### Layout
+### Layout (Landing Page Specific)
 
-- **Everything centered and symmetrical.** Break symmetry with offset margins, mixed aspect ratios, or left-aligned headers over centered content.
-- **Three equal card columns as feature row.** This is the most generic AI layout. Replace with a 2-column zig-zag, asymmetric grid, horizontal scroll, or masonry layout.
-- **Using `height: 100vh` for full-screen sections.** Replace with `min-height: 100dvh` to prevent layout jumping on mobile browsers (iOS Safari viewport bug).
-- **Complex flexbox percentage math.** Replace with CSS Grid for reliable multi-column structures.
-- **No max-width container.** Add a container constraint (around 1200-1440px) with auto margins so content doesn't stretch edge-to-edge on wide screens.
-- **Cards of equal height forced by flexbox.** Allow variable heights or use masonry when content varies in length.
-- **Uniform border-radius on everything.** Vary the radius: tighter on inner elements, softer on containers.
-- **No overlap or depth.** Elements sit flat next to each other. Use negative margins to create layering and visual depth.
-- **Symmetrical vertical padding.** Top and bottom padding are always identical. Adjust optically — bottom padding often needs to be slightly larger.
-- **Dashboard always has a left sidebar.** Try top navigation, a floating command menu, or a collapsible panel instead.
-- **Missing whitespace.** Double the spacing. Let the design breathe. Dense layouts work for data dashboards, not for marketing pages.
-- **Buttons not bottom-aligned in card groups.** When cards have different content lengths, CTAs end up at random heights. Pin buttons to the bottom of each card so they form a clean horizontal line regardless of content above.
-- **Feature lists starting at different vertical positions.** In pricing tables or comparison cards, the list of features should start at the same Y position across all columns. Use consistent spacing above the list or fixed-height title/price blocks.
-- **Inconsistent vertical rhythm in side-by-side elements.** When placing cards, columns, or panels next to each other, align shared elements (titles, descriptions, prices, buttons) across all items. Misaligned baselines make the layout look broken.
-- **Mathematical alignment that looks optically wrong.** Centering by the math doesn't always look centered to the eye. Icons next to text, play buttons in circles, or text in buttons often need 1-2px optical adjustments to feel right.
+- **Everything centered and symmetrical.** Break symmetry with offset margins, mixed aspect ratios, split-screen layouts.
+- **Three equal card columns for features.** The most generic AI layout. Replace with Bento grid, zig-zag alternating, or horizontal scroll.
+- **Every section uses the same layout.** Adjacent sections MUST use different patterns. Hero (split) → Features (bento) → Testimonials (masonry) → CTA (full-bleed).
+- **Using `height: 100vh`.** Replace with `min-height: 100dvh` for iOS Safari compatibility.
+- **No max-width container.** Add `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`.
+- **Missing whitespace.** Double the section padding. `py-20 md:py-32` minimum for landing page sections.
+- **Cards of forced equal height.** Allow variable heights or use masonry.
+- **No overlap or depth.** Use negative margins, z-index layering, or overlapping elements for visual depth.
+- **CTA buttons not prominent enough.** CTAs need `px-8 py-4 text-lg` minimum. Must be the most visually dominant element.
 
 ### Interactivity and States
 
-- **No hover states on buttons.** Add background shift, slight scale, or translate on hover.
-- **No active/pressed feedback.** Add a subtle `scale(0.98)` or `translateY(1px)` on press to simulate a physical click.
-- **Instant transitions with zero duration.** Add smooth transitions (200-300ms) to all interactive elements.
-- **Missing focus ring.** Ensure visible focus indicators for keyboard navigation. This is an accessibility requirement, not optional.
-- **No loading states.** Replace generic circular spinners with skeleton loaders that match the layout shape.
-- **No empty states.** An empty dashboard showing nothing is a missed opportunity. Design a composed "getting started" view.
-- **No error states.** Add clear, inline error messages for forms. Do not use `window.alert()`.
-- **Dead links.** Buttons that link to `#`. Either link to real destinations or visually disable them.
-- **No indication of current page in navigation.** Style the active nav link differently so users know where they are.
-- **Scroll jumping.** Anchor clicks jump instantly. Add `scroll-behavior: smooth`.
-- **Animations using `top`, `left`, `width`, `height`.** Switch to `transform` and `opacity` for GPU-accelerated, smooth animation.
+- **No hover states on buttons.** Add `hover:scale-[1.02]`, background shift, or translate effect with smooth transition.
+- **No active/pressed feedback.** Add `active:scale-[0.98]` for tactile click feel.
+- **Instant transitions.** Add `transition-all duration-300 ease-out` to all interactive elements.
+- **No scroll animations.** Add fade-up reveals using CSS `@keyframes` + `IntersectionObserver`.
+- **No loading states for interactive elements.** Add skeleton shimmer or loading indicators.
+- **Static logo strips.** Convert to auto-scrolling CSS marquee for trust logos.
+- **Dead `href="#"` links.** Remove or visually disable them.
+- **No smooth scroll.** Add `scroll-behavior: smooth` to `html`.
 
-### Content
+### Korean Content Quality
 
-- **Generic names like "John Doe" or "Jane Smith".** Use diverse, realistic-sounding names.
-- **Fake round numbers like `99.99%`, `50%`, `$100.00`.** Use organic, messy data: `47.2%`, `$99.00`, `+1 (312) 847-1928`.
-- **Placeholder company names like "Acme Corp", "Nexus", "SmartFlow".** Invent contextual, believable brand names.
-- **AI copywriting cliches.** Never use "Elevate", "Seamless", "Unleash", "Next-Gen", "Game-changer", "Delve", "Tapestry", or "In the world of...". Write plain, specific language.
-- **Exclamation marks in success messages.** Remove them. Be confident, not loud.
-- **"Oops!" error messages.** Be direct: "Connection failed. Please try again."
-- **Passive voice.** Use active voice: "We couldn't save your changes" instead of "Mistakes were made."
-- **All blog post dates identical.** Randomize dates to appear real.
-- **Same avatar image for multiple users.** Use unique assets for every distinct person.
-- **Lorem Ipsum.** Never use placeholder latin text. Write real draft copy.
-- **Title Case On Every Header.** Use sentence case instead.
+- **Translated-sounding Korean.** Rewrite in native, natural Korean. "지금 시작하세요" not "시작을 하세요 지금".
+- **Mixed honorific levels.** Stick to one: 합니다/하세요 consistently.
+- **AI copywriting cliches.** Remove: "혁신적인", "원활한", "차세대", "게임 체인저", "한 차원 높은". Use concrete language.
+- **Generic placeholder names.** Replace "김철수", "이영희" with realistic modern names: "하윤서", "박도현", "이서진".
+- **Fake round metrics.** Replace `50,000+` with `47,200+`. Replace `5.0/5.0` with `4.87/5.0`.
+- **English placeholder text.** All visible content must be in Korean.
+- **Lorem Ipsum.** Replace with real Korean draft copy immediately.
 
-### Component Patterns
+### Component Patterns (Landing Page)
 
-- **Generic card look (border + shadow + white background).** Remove the border, or use only background color, or use only spacing. Cards should exist only when elevation communicates hierarchy.
-- **Always one filled button + one ghost button.** Add text links or tertiary styles to reduce visual noise.
-- **Pill-shaped "New" and "Beta" badges.** Try square badges, flags, or plain text labels.
-- **Accordion FAQ sections.** Use a side-by-side list, searchable help, or inline progressive disclosure.
-- **3-card carousel testimonials with dots.** Replace with a masonry wall, embedded social posts, or a single rotating quote.
-- **Pricing table with 3 towers.** Highlight the recommended tier with color and emphasis, not just extra height.
-- **Modals for everything.** Use inline editing, slide-over panels, or expandable sections instead of popups for simple actions.
-- **Avatar circles exclusively.** Try squircles or rounded squares for a less generic look.
-- **Light/dark toggle always a sun/moon switch.** Use a dropdown, system preference detection, or integrate it into settings.
-- **Footer link farm with 4 columns.** Simplify. Focus on main navigational paths and legally required links.
+- **Generic hero with centered text over solid color.** Split screen, full-bleed media, or asymmetric statement layout.
+- **3-card feature row.** Replace with Bento grid, zig-zag alternating, or horizontal scroll strip.
+- **Carousel testimonials with dots.** Replace with masonry wall, embedded social-style cards, or single rotating quote with large portrait.
+- **Pricing table with 3 identical towers.** Highlight recommended tier with color, scale, and emphasis.
+- **Footer link farm with 4+ columns.** Simplify to essential nav, legal links, social icons.
+- **Accordion FAQ.** Replace with side-by-side list, searchable help, or expandable inline sections.
+- **CTA that blends into surrounding content.** CTAs need dramatic visual contrast — different background, larger padding, floating treatment.
 
-### Iconography
+### Icons and Images
 
-- **Lucide or Feather icons exclusively.** These are the "default" AI icon choice. Use Phosphor, Heroicons, or a custom set for differentiation.
-- **Rocketship for "Launch", shield for "Security".** Replace cliche metaphors with less obvious icons (bolt, fingerprint, spark, vault).
-- **Inconsistent stroke widths across icons.** Audit all icons and standardize to one stroke weight.
-- **Missing favicon.** Always include a branded favicon.
-- **Stock "diverse team" photos.** Use real team photos, candid shots, or a consistent illustration style instead of uncanny stock imagery.
+- **Lucide or Feather icons.** Replace with Iconify Solar icon set for consistency.
+- **Broken Unsplash URLs.** Replace with `picsum.photos/seed/{name}/{w}/{h}` for landscapes, `i.pravatar.cc/150?u={name}` for avatars.
+- **Missing favicon.** Add a branded favicon.
+- **Inconsistent icon stroke widths.** Standardize all icons to one weight (Solar set handles this automatically).
+- **Generic stock "team" photos.** Use consistent illustration style or high-quality contextual photography.
 
 ### Code Quality
 
-- **Div soup.** Use semantic HTML: `<nav>`, `<main>`, `<article>`, `<aside>`, `<section>`.
-- **Inline styles mixed with CSS classes.** Move all styling to the project's styling system.
-- **Hardcoded pixel widths.** Use relative units (`%`, `rem`, `em`, `max-width`) for flexible layouts.
-- **Missing alt text on images.** Describe image content for screen readers. Never leave `alt=""` or `alt="image"` on meaningful images.
-- **Arbitrary z-index values like `9999`.** Establish a clean z-index scale in the theme/variables.
-- **Commented-out dead code.** Remove all debug artifacts before shipping.
-- **Import hallucinations.** Check that every import actually exists in `package.json` or the project dependencies.
-- **Missing meta tags.** Add proper `<title>`, `description`, `og:image`, and social sharing meta tags.
-
-### Strategic Omissions (What AI Typically Forgets)
-
-- **No legal links.** Add privacy policy and terms of service links in the footer.
-- **No "back" navigation.** Dead ends in user flows. Every page needs a way back.
-- **No custom 404 page.** Design a helpful, branded "page not found" experience.
-- **No form validation.** Add client-side validation for emails, required fields, and format checks.
-- **No "skip to content" link.** Essential for keyboard users. Add a hidden skip-link.
-- **No cookie consent.** If required by jurisdiction, add a compliant consent banner.
+- **Div soup.** Use semantic HTML: `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`.
+- **Missing meta tags.** Add `<title>`, `<meta name="description">`, `<meta property="og:image">`, `<meta name="viewport">`.
+- **No `lang="ko"` on `<html>`.** Add it for accessibility and SEO.
+- **Images without `loading="lazy"`.** Add lazy loading to all below-fold images.
+- **No `alt` text on images.** Add descriptive Korean alt text.
+- **Arbitrary z-index values.** Establish: nav (40), overlay (50), decorative (60).
 
 ## Upgrade Techniques
 
-When upgrading a project, pull from these high-impact techniques to replace generic patterns:
-
 ### Typography Upgrades
-- **Variable font animation.** Interpolate weight or width on scroll or hover for text that feels alive.
-- **Outlined-to-fill transitions.** Text starts as a stroke outline and fills with color on scroll entry or interaction.
-- **Text mask reveals.** Large typography acting as a window to video or animated imagery behind it.
+- **Animated text reveals.** Characters or words fade/slide in sequentially on scroll.
+- **Gradient text accent.** ONE key headline with subtle gradient fill (max one per page).
+- **Variable weight on hover.** Text weight shifts subtly when interactive elements are hovered.
 
 ### Layout Upgrades
-- **Broken grid / asymmetry.** Elements that deliberately ignore column structure — overlapping, bleeding off-screen, or offset with calculated randomness.
-- **Whitespace maximization.** Aggressive use of negative space to force focus on a single element.
-- **Parallax card stacks.** Sections that stick and physically stack over each other during scroll.
-- **Split-screen scroll.** Two halves of the screen sliding in opposite directions.
+- **Broken grid / asymmetry.** Elements that deliberately offset from the column structure.
+- **Parallax depth.** Background images scroll at different speeds from content.
+- **Sticky scroll stacking.** Sections stick and layer over each other during scroll.
+- **Full-bleed section transitions.** Sections bleed into each other with gradient or diagonal transitions.
 
 ### Motion Upgrades
-- **Smooth scroll with inertia.** Decouple scrolling from browser defaults for a heavier, cinematic feel.
-- **Staggered entry.** Elements cascade in with slight delays, combining Y-axis translation with opacity fade. Never mount everything at once.
-- **Spring physics.** Replace linear easing with spring-based motion for a natural, weighty feel on all interactive elements.
-- **Scroll-driven reveals.** Content entering through expanding masks, wipes, or draw-on SVG paths tied to scroll progress.
+- **Staggered entry cascades.** Elements enter with `animation-delay: calc(var(--index) * 80ms)`.
+- **Spring-based hover.** `transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1)` on interactive elements.
+- **Scroll-driven progress.** Progress bars or SVG line drawings tied to scroll position.
+- **Marquee logos.** Client logos in an infinite CSS marquee animation.
 
 ### Surface Upgrades
-- **True glassmorphism.** Go beyond `backdrop-filter: blur`. Add a 1px inner border and a subtle inner shadow to simulate edge refraction.
-- **Spotlight borders.** Card borders that illuminate dynamically under the cursor.
-- **Grain and noise overlays.** A fixed, pointer-events-none overlay with subtle noise to break digital flatness.
-- **Colored, tinted shadows.** Shadows that carry the hue of the background rather than using generic black.
+- **True glassmorphism.** `backdrop-blur-xl` + `border border-white/10` + inner shadow.
+- **Mesh gradient backgrounds.** Multiple `radial-gradient` layers for organic ambient feel.
+- **Noise texture overlay.** Fixed `pointer-events-none` element with subtle grain.
+- **Tinted shadows.** Shadows that carry the background hue instead of generic black.
 
 ## Fix Priority
 
-Apply changes in this order for maximum visual impact with minimum risk:
+Apply in this order for maximum visual impact, minimum risk:
 
-1. **Font swap** — biggest instant improvement, lowest risk
-2. **Color palette cleanup** — remove clashing or oversaturated colors
-3. **Hover and active states** — makes the interface feel alive
-4. **Layout and spacing** — proper grid, max-width, consistent padding
-5. **Replace generic components** — swap cliche patterns for modern alternatives
-6. **Add loading, empty, and error states** — makes it feel finished
-7. **Polish typography scale and spacing** — the premium final touch
+1. **Font swap to Pretendard** — instant premium feel for Korean content
+2. **Color palette cleanup** — remove AI purple, desaturate accents
+3. **Korean content rewrite** — natural copy, real names, organic numbers
+4. **Hover and active states** — make the interface feel alive
+5. **Layout diversification** — break the same-section repetition
+6. **Section animation** — staggered reveals, scroll triggers
+7. **Polish spacing and typography** — the premium final touch
 
 ## Rules
 
-- Work with the existing tech stack. Do not migrate frameworks or styling libraries.
-- Do not break existing functionality. Test after every change.
-- Before importing any new library, check the project's dependency file first.
-- If the project uses Tailwind, check the version (v3 vs v4) before modifying config.
-- If the project has no framework, use vanilla CSS.
-- Keep changes reviewable and focused. Small, targeted improvements over big rewrites.
+- Do not break existing page structure. Improve incrementally.
+- Output must remain a single standalone HTML file.
+- Before adding any CDN dependency, verify the URL is correct and from a major provider.
+- Keep changes focused and reviewable. Targeted improvements over total rewrites.
+- All content modifications must maintain natural Korean language quality.

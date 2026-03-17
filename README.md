@@ -1,66 +1,98 @@
-# Taste Skill
+# Supanova Design Skill
 
-A collection of skills that improve how AI tools write frontend code. Instead of generating generic, boring interfaces, the AI builds modern, premium designs with proper animations, spacing, and visual quality.
+AI가 생성하는 랜딩페이지의 디자인 퀄리티를 극적으로 향상시키는 스킬 모음입니다. 제네릭한 AI 템플릿 대신 $150k 에이전시 수준의 프리미엄 랜딩페이지를 생성합니다.
 
-## Feedback & Contributions
-
-I'd love to hear your thoughts! If you have suggestions or find any bugs:
-
-- Open a Pull Request or Issue right here on GitHub
-- DM me on [x.com/lexnlin](https://x.com/lexnlin)
-- Email me at [hello@learn2vibecode.dev](mailto:hello@learn2vibecode.dev)
+> **Powered by [supanova.dev](https://supanova.dev)** — AI 랜딩페이지 빌더
+>
+> Based on [taste-skill](https://github.com/Leonxlnx/taste-skill) by [@lexnlin](https://x.com/lexnlin)
 
 ## Skills
 
-There are four skills in this project. Each one lives in its own folder and contains a `SKILL.md` file.
+4개의 스킬이 각각의 폴더에 `SKILL.md` 파일로 존재합니다.
 
-### 1. taste-skill
-The main design skill. Teaches the AI how to write good-looking frontend code from scratch. Covers layout, typography, colors, spacing, motion, and overall visual quality.
+### 1. taste-skill (Supanova Design Engine)
+메인 디자인 스킬. AI가 처음부터 프리미엄 랜딩페이지를 생성하도록 가르칩니다. 레이아웃, 타이포그래피, 컬러, 모션, 한국어 콘텐츠 품질까지 포괄합니다.
 
-### 2. redesign-skill
-For upgrading existing projects. Instead of rebuilding from zero, this skill walks the AI through auditing what's already there and fixing the biggest design problems first.
+### 2. redesign-skill (Supanova Redesign Engine)
+기존 랜딩페이지를 업그레이드합니다. 처음부터 다시 만드는 대신, 현재 디자인을 진단하고 가장 임팩트 있는 개선을 우선 적용합니다.
 
-### 3. soft-skill
-Focuses on making things look and feel expensive. Covers premium fonts, big breathing whitespace, layered card designs with depth, smooth spring-based animations, and floating navigation. Bans all the generic defaults that make AI output look like a template.
+### 3. soft-skill (Supanova Premium Aesthetic)
+$150k 에이전시 퀄리티에 집중합니다. Double-Bezel 카드 아키텍처, 스프링 기반 애니메이션, 플로팅 글래스 네비게이션, 한국어 타이포그래피 표준을 정의합니다.
 
-### 4. output-skill
-Stops the AI from being lazy. Prevents placeholder comments, skipped code blocks, and half-finished outputs. Forces the AI to actually write everything instead of cutting corners.
+### 4. output-skill (Supanova Full-Output)
+AI의 출력 생략을 방지합니다. 플레이스홀더, 스켈레톤, 미완성 출력을 차단하고, 모든 랜딩페이지를 완전한 HTML 파일로 출력하도록 강제합니다.
 
-## How to Use
+## Supanova 특화 포인트
 
-1. Copy the `SKILL.md` file from the skill folder you need into your project.
-2. Tell your AI to read and follow it. In most editors you can just reference it directly (e.g. `@SKILL.md` in Cursor).
+원본 taste-skill과의 주요 차이점:
 
-That's it. The AI reads the file and follows the rules.
+- **Standalone HTML** — React/Next.js가 아닌 단일 HTML 파일 출력 (Tailwind CDN)
+- **한국어 퍼스트** — Pretendard 폰트, `word-break: keep-all`, 자연스러운 한국어 카피
+- **Iconify Solar** — 일관된 아이콘 시스템
+- **랜딩페이지 특화** — 일반 웹앱이 아닌 전환율 중심 랜딩페이지 패턴
+- **한국 시장** — 한국 사용자 이름, 한국 기업명, 한국어 CTA 패턴
 
-## Settings (taste-skill only)
+## 사용법
 
-The taste skill has three settings at the top of the file. Change these numbers (1-10) depending on what you're building:
+1. 필요한 스킬의 `SKILL.md` 파일을 프로젝트에 복사합니다.
+2. AI 에디터에서 해당 파일을 참조하세요. (예: Cursor에서 `@SKILL.md`)
 
-**DESIGN_VARIANCE** — How experimental the layout is.
-- 1-3: Clean, centered, standard grids.
-- 4-7: Overlapping elements, varied sizes.
-- 8-10: Asymmetric, lots of whitespace, very modern.
+끝입니다. AI가 파일을 읽고 규칙을 따릅니다.
 
-**MOTION_INTENSITY** — How much animation there is.
-- 1-3: Almost none. Simple hover effects.
-- 4-7: Fade-ins, smooth scrolling.
-- 8-10: Magnetic effects, spring physics, scroll-triggered animations.
+### 추천 조합
 
-**VISUAL_DENSITY** — How much content fits on one screen.
-- 1-3: Big and spacious. One element at a time. Luxury feel.
-- 4-7: Normal spacing. Like a typical app or website.
-- 8-10: Dense and compact. Dashboards, data-heavy interfaces.
+| 상황 | 추천 스킬 |
+|------|-----------|
+| 새 랜딩페이지 생성 | `taste-skill` + `output-skill` |
+| 기존 페이지 업그레이드 | `redesign-skill` |
+| 최고 퀄리티가 필요할 때 | `taste-skill` + `soft-skill` + `output-skill` |
 
-## Examples
+## 설정 (taste-skill)
 
-Created with taste-skill:
+taste-skill 상단의 4개 설정값을 조정할 수 있습니다:
 
-<p>
-  <img src="examples/floria-top.webp" width="400" />
-  <img src="examples/floria-bottom.webp" width="400" />
-</p>
+**DESIGN_VARIANCE** — 레이아웃의 실험성
+- 1-3: 깔끔하고 정돈된 대칭 그리드
+- 4-7: 오버랩, 다양한 사이즈
+- 8-10: 비대칭, 넉넉한 여백, 모던
 
-## Research
+**MOTION_INTENSITY** — 애니메이션 수준
+- 1-3: 거의 없음. 호버 효과 정도
+- 4-7: 페이드인, 스무스 스크롤
+- 8-10: 마그네틱 효과, 스프링 물리, 스크롤 트리거
 
-Background research that informed how these skills were built. See the [research](research/) folder.
+**VISUAL_DENSITY** — 화면당 콘텐츠 밀도
+- 1-3: 넓고 럭셔리. 한 번에 하나의 요소
+- 4-7: 일반적인 앱/웹사이트 간격
+- 8-10: 촘촘하고 데이터 중심
+
+**LANDING_PURPOSE** — 페이지 목적
+- conversion: 전환율 중심 (기본값)
+- brand: 브랜드 이미지 중심
+- portfolio: 포트폴리오/쇼케이스
+- saas: SaaS 제품 소개
+- ecommerce: 이커머스/제품 판매
+
+## 기술 스택
+
+이 스킬로 생성되는 페이지의 기본 스택:
+
+```html
+<!-- Tailwind CSS (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Pretendard 한국어 폰트 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+
+<!-- Iconify Solar 아이콘 -->
+<script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+```
+
+## 기여 & 피드백
+
+- GitHub Issue 또는 Pull Request
+- [supanova.dev](https://supanova.dev)
+
+## 라이선스
+
+원본 [taste-skill](https://github.com/Leonxlnx/taste-skill)의 라이선스를 따릅니다.
