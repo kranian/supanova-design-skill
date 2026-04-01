@@ -4,7 +4,6 @@
 > 작성일: 2026-04-01
 > 프로젝트: 철목수(Cheolmoksu) 스틸하우스 전문 시공사 랜딩 페이지
 > 근거: [경쟁력 분석](./kateye-analysis-cheolmoksu-20260401-001.md) + [디자인 리서치](./research/README.md) + [기획 리뷰](./research/planning-review.md)
-
 ---
 
 ## 1. 프로젝트 요약
